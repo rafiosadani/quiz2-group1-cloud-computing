@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Mochammad Ardiansyah</title>
+    <link rel="stylesheet" href="./../../assets/css/mchardians/contact.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="index.html" class="logo">mchardians</a>
+                
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu">
+                    <li><a href="index.html">About Me</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <div class="mobile-nav-content">
+                <button class="mobile-nav-close">
+                    <span>&times;</span>
+                </button>
+                <a href="index.html">About Me</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Let's Work Together</h1>
+                <p>Ready to bring your ideas to life? I'm here to help you create amazing digital experiences that make a difference.</p>
+            </div>
+
+            <div class="contact-hero">
+                <div class="hero-content">
+                    <h2>Ready to Start Your Next Project?</h2>
+                    <p>Whether you need a stunning website, a powerful web application, or technical consultation, I'm here to help you achieve your goals. Let's discuss how we can work together to bring your vision to reality.</p>
+                </div>
+                <div class="hero-visual">
+                    <div class="contact-illustration">
+                        <span>💬</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-section">
+                <div class="form-header">
+                    <h2>Send Me a Message</h2>
+                    <p>Fill out the form below and I'll get back to you within 24 hours</p>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="subject">Project Type</label>
+                        <input type="text" id="subject" name="subject" placeholder="e.g., Website Development, Web App, Consultation" required>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project, timeline, budget, and any specific requirements..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="./../../assets/js/script.js"></script>
+</body>
+</html>

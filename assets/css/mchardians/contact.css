@@ -1,0 +1,708 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 80px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bolder;
+    color: #333;
+    text-decoration: none;
+    margin-left: 32px;
+}
+
+/* Desktop Navigation */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    align-items: center;
+    margin-right: 32px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+    color: #4a5568;
+}
+
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #4a5568;
+    transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover::after,
+.nav-menu li a.active::after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(245, 245, 245, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 40px;
+}
+
+.mobile-nav-content a {
+    text-decoration: none;
+    color: #333;
+    font-size: 24px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav-content a:hover {
+    color: #4a5568;
+}
+
+/* Mobile Navigation Close Button */
+.mobile-nav-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: none;
+    border: none;
+    font-size: 40px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
+}
+
+.mobile-nav-close:hover {
+    color: #4a5568;
+    transform: rotate(90deg);
+}
+
+.mobile-nav-close span {
+    display: block;
+    line-height: 1;
+}
+
+/* Main Content */
+.main-content {
+    padding: 60px 0 100px;
+    min-height: calc(100vh - 80px);
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.page-header h1 {
+    font-size: clamp(42px, 7vw, 56px);
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 24px;
+    animation: slideInUp 0.8s ease-out 0.2s both;
+    position: relative;
+}
+
+.page-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #4a5568, #667eea);
+    border-radius: 2px;
+}
+
+.page-header p {
+    font-size: 20px;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: slideInUp 0.8s ease-out 0.4s both;
+}
+
+/* Contact Hero Section */
+.contact-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.hero-content {
+    animation: slideInUp 0.8s ease-out 0.6s both;
+}
+
+.hero-visual {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideInRight 0.8s ease-out 0.8s both;
+}
+
+.contact-illustration {
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+}
+
+.contact-illustration::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    animation: rotate 15s linear infinite;
+}
+
+.hero-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+
+/* Contact Methods Grid */
+.contact-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.contact-method {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.8s ease-out both;
+}
+
+.contact-method:nth-child(1) { animation-delay: 0.2s; }
+.contact-method:nth-child(2) { animation-delay: 0.4s; }
+.contact-method:nth-child(3) { animation-delay: 0.6s; }
+
+.contact-method::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.contact-method:hover::before {
+    left: 100%;
+}
+
+.contact-method:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+    margin: 0 auto 24px;
+    transition: all 0.3s ease;
+}
+
+.contact-method:hover .contact-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.contact-details h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.contact-details p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.contact-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74, 85, 104, 0.3);
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    background: white;
+    border-radius: 32px;
+    padding: 60px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.8s ease-out 0.8s both;
+}
+
+.contact-form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.form-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 18px;
+}
+
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 18px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: #fafafa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.submit-btn {
+    grid-column: 1 / -1;
+    padding: 20px 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+/* Social Links */
+.social-section {
+    text-align: center;
+    margin-top: 80px;
+    animation: slideInUp 0.8s ease-out 1s both;
+}
+
+.social-section h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 32px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover::before {
+    opacity: 1;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+}
+
+.social-icon span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Background Pattern - Enhanced Flowing Waves */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(118, 75, 162, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 30%, rgba(240, 147, 251, 0.1) 0%, transparent 45%),
+    radial-gradient(ellipse at 30% 70%, rgba(14, 165, 233, 0.1) 0%, transparent 45%),
+    linear-gradient(135deg, transparent 20%, rgba(102, 126, 234, 0.05) 50%, transparent 80%),
+    linear-gradient(-135deg, transparent 20%, rgba(118, 75, 162, 0.05) 50%, transparent 80%);
+    background-size: 800px 600px, 700px 500px, 600px 400px, 500px 350px, 1000px 800px, 1000px 800px;
+    background-position: 0 0, 300px 400px, 500px 100px, 100px 300px, 0 0, 200px 200px;
+    animation: enhancedWaveFlow 40s ease-in-out infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes enhancedWaveFlow {
+    0%, 100% {
+        background-position: 0 0, 300px 400px, 500px 100px, 100px 300px, 0 0, 200px 200px;
+    }
+    25% {
+        background-position: 200px 100px, 500px 300px, 400px 250px, 300px 200px, 300px 150px, 400px 350px;
+    }
+    50% {
+        background-position: 150px 200px, 200px 500px, 600px 150px, 200px 400px, 200px 300px, 300px 500px;
+    }
+    75% {
+        background-position: 300px 150px, 400px 200px, 300px 350px, 400px 100px, 500px 200px, 500px 300px;
+    }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    .contact-hero {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .hero-visual {
+        order: -1;
+        height: 300px;
+    }
+
+    .contact-illustration {
+        width: 250px;
+        height: 250px;
+        font-size: 60px;
+    }
+
+    .contact-methods-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-section {
+        padding: 40px 30px;
+    }
+
+    .contact-form {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .social-icons {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        margin-left: 16px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .main-content {
+        padding: 40px 0 60px;
+    }
+
+    .menu-toggle {
+        margin-right: 16px;
+    }
+
+    .mobile-nav-content {
+        gap: 30px;
+    }
+
+    .mobile-nav-content a {
+        font-size: 20px;
+    }
+
+    .contact-form-section {
+        padding: 30px 20px;
+    }
+
+    .page-header {
+        margin-bottom: 60px;
+    }
+
+    .contact-hero {
+        margin-bottom: 60px;
+    }
+
+    .social-section {
+        margin-top: 60px;
+    }
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
+}
